@@ -1,0 +1,31 @@
+<h2>Order Management</h2>
+<table class="table table-bordered table-striped">
+  <thead>
+    <th>Order ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>Total price</th>
+    <th>Items</th>
+    <th>Operation</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{order.orderNum}}</td>
+      <td>{{ order.first_name }}</td>
+      <td>{{ order.last_name }}</td>
+      <td>{{order.address}}</td>
+      <td>{{order.zip}}</td>
+      <td>{{order.phone}}</td>
+      <td>{{order.ord_price}}</td>
+      <td>
+        <a href="javascript:void(0)" (click)="getItems(order.id)" routerLink="/admin/orderAll/detail">show</a>
+      </td>
+      <td>
+        <a href="javascript:void(0)" (click)="doDelete(order.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

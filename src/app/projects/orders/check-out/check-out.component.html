@@ -1,0 +1,126 @@
+<div class="col-md-8">
+  <form [formGroup]="form" (submit)="makeOrder()">
+    <div class="form-group">
+      <div class="form-group">
+
+        <div>
+          <div>
+            <h2 id="main-header">
+              Contact information
+            </h2>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <div>
+              <div>
+                <label>Email</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+<!-- /////////////////////////////////  -->
+      <div class="form-group">
+
+        <div class="form-group">
+          <h2>
+            Shipping address
+          </h2>
+        </div>
+
+        <div>
+
+          <div class="form-group">
+            <label>First name</label>
+            <input placeholder="First name" class="form-control" type="text" id="firstname" name="firstname" formControlName="firstname">
+          </div>
+
+          <div class="form-group">
+            <label>Last name</label>
+            <input placeholder="Last name" type="text" class="form-control" id="lastname" name="lastname" formControlName="lastname">
+          </div>
+
+          <div class="form-group">
+            <label>Address</label>
+            <input class="form-control" placeholder="Address" type="text" id="address" name="address" formControlName="address">
+          </div>
+
+          <div class="form-group">
+            <label>Apartment, suite, etc. (optional)</label>
+            <input class="form-control" type="text" placeholder="Apartment, suite, etc. (optional)" id="apt" name="apt" formControlName="apt">
+          </div>
+
+          <div class="form-group">
+            <label>City</label>
+            <input class="form-control" type="text" placeholder="City" id="city" name="city" formControlName="city">
+          </div>
+
+          <div class="form-group">
+            <label>State</label>
+            <input class="form-control" type="text" placeholder="State" id="state" name="state" formControlName="state">
+          </div>
+
+          <div class="form-group">
+            <label>Zip</label>
+            <input class="form-control" type="number" placeholder="Zip code" id="zip" name="zip" formControlName="zip">
+          </div>
+
+          <div>
+            <label>Phone</label>
+            <input type="number" class="form-control" placeholder="phone" id="phone" name="phone" formControlName="phone">
+          </div>
+        </div>
+      </div>
+
+      <!--///////////////////////////// -->
+      <div>
+        <div>
+          <h2>
+            Payment Info
+          </h2>
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Credit Card #" name="cardNumber" class="form-control">
+          <input type="text" placeholder="Expiration Month" name="expMonth" class="form-control">
+          <input type="text" placeholder="Expiration Year" name="expYear" class="form-control">
+          <input type="text" placeholder="CVC" name="cvc" class="form-control">
+          <!--<button (click)="chargeCreditCard()">Submit</button>-->
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <a routerLink="/cart">
+        <span>Return to cart</span>
+      </a>
+    </div>
+    <div>
+      <button class="btn btn-success" type="submit" *ngIf="canPayOrder">Place Order</button>
+    </div>
+  </form>
+</div>
+
+<div class="col-md-4">
+  <h4 id="title-box-check-out">
+    Your products
+  </h4>
+  <ul>
+    <li *ngFor="let cabinet of cabinets" class="list-group-item">
+      <div style="width: 45%; display: inline-block">
+        <h6>{{cabinet.cab_name}}</h6>
+        <small class="text-muted">Quantity: {{cabinet.cart_cnt}}</small>
+      </div>
+      <span class="text-muted" style="display: inline-block; float: right">{{cabinet.price}}$</span>
+    </li>
+    <li class="list-group-item">
+      <span>Total(USD)</span>
+      <strong id="total-price">{{totalPrice}}$</strong>
+    </li>
+  </ul>
+</div>

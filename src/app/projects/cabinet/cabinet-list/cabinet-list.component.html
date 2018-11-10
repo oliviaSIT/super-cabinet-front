@@ -1,0 +1,57 @@
+<h3>Cabinets List</h3>
+<p-dataView #dv [value]="cabinetList" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
+            [sortField]="sortField" [sortOrder]="sortOrder">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="ui-g">
+        <div class="ui-g-12 ui-md-4">
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
+        </div>
+        <div class="ui-g-6 ui-md-4 filter-container">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+          </div>
+        </div>
+        <div class="ui-g-6 ui-md-4" style="text-align:right">
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-cabinet pTemplate="listItem">
+    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+      <div class="ui-g-12 ui-md-3" style="text-align:center">
+        <a [routerLink]="['/cabinet/detail/', cabinet.id]">
+          <img src='{{ serverUrl+cabinet.pic }}' width="60">
+        </a>
+      </div>
+      <div class="ui-g-12 ui-md-8 car-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6">Cabinet Name: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{cabinet.cab_name}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">Description: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{cabinet.cab_desc}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">Price: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{cabinet.price}}</b></div>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-1 search-icon">
+        <button class="btn btn-danger my-cart-btn hvr-sweep-to-right" (click)="addCart()">Add to Cart</button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-cabinet pTemplate="gridItem">
+    <div style="padding:.5em" class="ui-g-12 ui-md-3">
+      <p-panel [header]="cabinet.cab_name" [style]="{'text-align':'center'}">
+        <a [routerLink]="['/cabinet/detail/', cabinet.id]">
+          <img src='{{ serverUrl+cabinet.pic }}' width="60">
+        </a>
+        <div class="car-detail">{{cabinet.price}}</div>
+        <hr class="ui-widget-content" style="border-top:0">
+        <button class="btn btn-danger my-cart-btn hvr-sweep-to-right" (click)="addCart()">Add to Cart</button>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-dataView>
