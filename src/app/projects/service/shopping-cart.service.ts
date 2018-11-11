@@ -15,15 +15,15 @@ export class ShoppingCartService {
   }
 
   addToCart(cabinet: any) {
-    let flag = true
+    let flag = true;
     this.cart.forEach((obj) => {
-      if(obj.cab_name === cabinet.cab_name){
+      if (obj.cab_name === cabinet.cab_name) {
         flag = false
         obj.cart_cnt += 1;
         this.total_price += cabinet.price;
       }
     })
-    if(flag) {
+    if (flag) {
       this.cart.push(cabinet)
       this.total_price += cabinet.price;
     }

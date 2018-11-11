@@ -25,7 +25,6 @@ export class CabinetListDetailComponent implements OnInit {
 
     this.cabShowService.getCab(this.id).subscribe((res) => {
       this.cabDet = res.json();
-      console.log(this.cabDet);
       this.cabDet.cart_cnt = 1;
     });
   }

@@ -3,6 +3,7 @@ import { CabShowService } from '../../service/cab-show.service';
 import { HttpClient } from '@angular/common/http';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { Http } from '@angular/http';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cabinet-list',
@@ -21,7 +22,11 @@ export class CabinetListComponent implements OnInit {
 
   pic: any
 
-  constructor(private httpclient: HttpClient, private http: Http, private cabService: CabShowService, private shoppingCartService: ShoppingCartService) {
+  constructor(private httpclient: HttpClient,
+              private http: Http,
+              private cabService: CabShowService,
+              private shoppingCartService: ShoppingCartService,
+              private route: Router) {
     this.getCabinets();
   }
 
@@ -33,7 +38,7 @@ export class CabinetListComponent implements OnInit {
     this.sortOptions = [
       {label: 'Newest First', value: '!year'},
       {label: 'Oldest First', value: 'year'},
-      {label: 'Brand', value: 'brand'}
+      {label: 'Name', value: 'name'}
     ];
   }
 
@@ -46,11 +51,13 @@ export class CabinetListComponent implements OnInit {
   getPics(): any {
     this.cabService.getPics().subscribe((res) => {
       this.pic = res;
-    })
+    });
   }
 
-  addToCart() {
-    this.shoppingCartService.addToCart(this.cabinetList[0])
+  addToCart(cabinet) {
+    cabinet.cart_cnt = 1;
+    this.shoppingCartService.addToCart(cabinet);
+    this.route.navigateByUrl('/cart');
   }
 
   onSortChange(event) {

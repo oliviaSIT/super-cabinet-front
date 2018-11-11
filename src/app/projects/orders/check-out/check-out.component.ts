@@ -51,7 +51,6 @@ export class CheckOutComponent implements OnInit {
 
   makeOrder() {
     let form = document.getElementsByTagName("form")[0];
-    // console.log(form);
     (<any>window).Stripe.card.createToken({
       number: form.cardNumber.value,
       exp_month: form.expMonth.value,
@@ -62,9 +61,9 @@ export class CheckOutComponent implements OnInit {
         console.log("yes")
         let token = response.id;
         this.chargeCard(token);
-        this.generateOrder()
+        this.generateOrder();
       } else {
-        // this.generateOrder()
+        this.generateOrder()
         alert(response.error.message);
       }
     });

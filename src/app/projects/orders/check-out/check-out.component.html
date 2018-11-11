@@ -2,74 +2,62 @@
   <form [formGroup]="form" (submit)="makeOrder()">
     <div class="form-group">
       <div class="form-group">
-
-        <div>
-          <div>
-            <h2 id="main-header">
-              Contact information
-            </h2>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <div>
-              <div>
-                <label>Email</label>
-                <input type="email" class="form-control" id="email" name="email" formControlName="email">
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-<!-- /////////////////////////////////  -->
-      <div class="form-group">
-
         <div class="form-group">
-          <h2>
-            Shipping address
+          <h2 id="main-header">
+            Contact information
           </h2>
         </div>
+        <div class="form-group ui-md-12">
+          <label>Email</label>
+          <input placeholder="xxx@xxxx.com" type="email" class="form-control" id="email" name="email" formControlName="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+
+      <div class="form-group">
+        <h2>
+          Shipping address
+        </h2>
+      </div>
 
         <div>
-
-          <div class="form-group">
+          <div class="form-group ui-md-6" style="display: inline-block">
             <label>First name</label>
             <input placeholder="First name" class="form-control" type="text" id="firstname" name="firstname" formControlName="firstname">
           </div>
 
-          <div class="form-group">
+          <div class="form-group ui-md-6" style="display: inline-block">
             <label>Last name</label>
             <input placeholder="Last name" type="text" class="form-control" id="lastname" name="lastname" formControlName="lastname">
           </div>
 
-          <div class="form-group">
+          <div class="form-group ui-md-12">
             <label>Address</label>
             <input class="form-control" placeholder="Address" type="text" id="address" name="address" formControlName="address">
           </div>
 
-          <div class="form-group">
+          <div class="form-group ui-md-12">
             <label>Apartment, suite, etc. (optional)</label>
             <input class="form-control" type="text" placeholder="Apartment, suite, etc. (optional)" id="apt" name="apt" formControlName="apt">
           </div>
 
-          <div class="form-group">
+          <div class="form-group ui-md-6" style="display: inline-block">
             <label>City</label>
             <input class="form-control" type="text" placeholder="City" id="city" name="city" formControlName="city">
           </div>
 
-          <div class="form-group">
+          <div class="form-group ui-md-6" style="display: inline-block">
             <label>State</label>
             <input class="form-control" type="text" placeholder="State" id="state" name="state" formControlName="state">
           </div>
 
-          <div class="form-group">
+          <div class="form-group ui-md-6" style="display: inline-block">
             <label>Zip</label>
             <input class="form-control" type="number" placeholder="Zip code" id="zip" name="zip" formControlName="zip">
           </div>
 
-          <div>
+          <div class="form-group ui-md-6" style="display: inline-block">
             <label>Phone</label>
             <input type="number" class="form-control" placeholder="phone" id="phone" name="phone" formControlName="phone">
           </div>
@@ -85,24 +73,37 @@
         </div>
 
         <div class="form-group">
-          <input type="text" placeholder="Credit Card #" name="cardNumber" class="form-control">
-          <input type="text" placeholder="Expiration Month" name="expMonth" class="form-control">
-          <input type="text" placeholder="Expiration Year" name="expYear" class="form-control">
-          <input type="text" placeholder="CVC" name="cvc" class="form-control">
+          <div class="form-group ui-md-12">
+            <label>Credit/Debit Card</label>
+            <input type="text" placeholder="Credit Card #" name="cardNumber" class="form-control">
+          </div>
+          <div class="form-group ui-md-6" style="display: inline-block">
+            <label>Expiration Month</label>
+            <input type="text" placeholder="Expiration Month" name="expMonth" class="form-control">
+          </div>
+          <div class="form-group ui-md-6" style="display: inline-block">
+            <label>Expiration Year</label>
+            <input type="text" placeholder="Expiration Year" name="expYear" class="form-control">
+          </div>
+          <div class="form-group ui-md-12">
+            <label>CVV Number</label>
+            <input type="text" placeholder="CVC" name="cvc" class="form-control">
+          </div>
           <!--<button (click)="chargeCreditCard()">Submit</button>-->
         </div>
       </div>
 
     </div>
-
-    <div>
+<div>
+    <div class="form-group ui-md-6" style="display: inline-block">
       <a routerLink="/cart">
         <span>Return to cart</span>
       </a>
     </div>
-    <div>
+    <div class="form-group ui-md-6" style="display: inline-block">
       <button class="btn btn-success" type="submit" *ngIf="canPayOrder">Place Order</button>
     </div>
+</div>
   </form>
 </div>
 
@@ -119,7 +120,7 @@
       <span class="text-muted" style="display: inline-block; float: right">{{cabinet.price}}$</span>
     </li>
     <li class="list-group-item">
-      <span>Total(USD)</span>
+      <span>Total (USD)</span>
       <strong id="total-price">{{totalPrice}}$</strong>
     </li>
   </ul>
