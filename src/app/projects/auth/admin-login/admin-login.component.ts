@@ -21,7 +21,7 @@ export class AdminLoginComponent implements OnInit {
         this.response = res;
         console.log(res);
         if (res.success) {
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin-index']);
         }
       });
   }
@@ -30,21 +30,11 @@ export class AdminLoginComponent implements OnInit {
     this.authService.login(user)
       .subscribe((res) => {
         this.response = res;
-        if(res.success){
-          // this.router.navigate(['/admin-index'])
+        if (res.success) {
+          this.router.navigate(['/admin-index']);
+        } else {
+          this.router.navigate(['./login-error.component.html']);
         }
-        // else {
-        //   this.router.navigate(['./login-error.component.html'])
-        // }
       });
   }
-
-  // getUsers() {
-  //   this.authService.getUsers()
-  //     .subscribe(res => {
-  //       console.log(res);
-  //       this.response = res;
-  //     });
-  // }
-
 }

@@ -4,25 +4,25 @@ import { Http } from '@angular/http';
 import {AppConfig} from '../modules/services/app.config';
 
 @Injectable()
-export class CabShowService {
+export class ProShowService {
 
   private API_URL = AppConfig.API_URL;
 
   public static server_url = AppConfig.API_URL + '/files/';
 
-  pic: any
+  pic: any;
 
   constructor(private httpclient: HttpClient, private http: Http) { }
 
-  getCabinets(): any {
-   return this.http.get(this.API_URL + '/cabinets');
+  getProducts(): any {
+   return this.http.get(this.API_URL + '/products');
   }
 
   getPics(): any {
     return this.httpclient.get(this.API_URL + '/getallfiles');
   }
 
-  getCab(id: any): any {
-    return this.http.get(this.API_URL + '/cabinets/' + id);
+  getPro(id: any): any {
+    return this.http.get(this.API_URL + '/products/' + id);
   }
 }

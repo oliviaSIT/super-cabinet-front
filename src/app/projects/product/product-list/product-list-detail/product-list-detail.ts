@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import { CabShowService } from '../../../service/cab-show.service';
+import { ProShowService } from '../../../service/pro-show.service';
 import { ShoppingCartService } from '../../../service/shopping-cart.service';
 
 @Component({
-  selector: 'app-cabinet-list-detail',
+  selector: 'app-product-list-detail',
   templateUrl: './product-list-detail.component.html',
   styleUrls: ['./product-list-detail.component.css']
 })
@@ -12,10 +12,10 @@ export class ProductListDetail implements OnInit {
 
   private id: any;
 
-  public cabDet: any;
+  public proDet: any;
 
   constructor(private router: ActivatedRoute,
-              private cabShowService: CabShowService,
+              private proShowService: ProShowService,
               private shoppingCartService: ShoppingCartService,
               private route: Router) {
   }
@@ -23,18 +23,18 @@ export class ProductListDetail implements OnInit {
   ngOnInit() {
     this.router.paramMap.subscribe((params: ParamMap) => this.id = params.get('id'));
 
-    this.cabShowService.getCab(this.id).subscribe((res) => {
-      this.cabDet = res.json();
-      this.cabDet.cart_cnt = 1;
+    this.proShowService.getPro(this.id).subscribe((res) => {
+      this.proDet = res.json();
+      this.proDet.cart_cnt = 1;
     });
   }
 
   get serverUrl(): string {
-    return CabShowService.server_url;
+    return ProShowService.server_url;
   }
 
   addCart() {
-    this.shoppingCartService.addToCart(this.cabDet);
+    this.shoppingCartService.addToCart(this.proDet);
     this.route.navigateByUrl('/cart');
   }
 }

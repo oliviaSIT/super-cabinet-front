@@ -8,13 +8,13 @@ import { ShoppingCartService } from '../service/shopping-cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  cabinets: Array<any>
+  products: Array<any>;
 
-  totalPrice: number
+  totalPrice: number;
 
   constructor(private shoppingCartService: ShoppingCartService) {
-    this.cabinets =  shoppingCartService.getAllCabs()
-    this.totalPrice = shoppingCartService.getTotalPrice()
+    this.products =  shoppingCartService.getAllPros();
+    this.totalPrice = shoppingCartService.getTotalPrice();
   }
 
   ngOnInit() {
@@ -22,17 +22,17 @@ export class ShoppingCartComponent implements OnInit {
 
   triggerCart(num, i) {
     if(num <= 0) {
-      this.cabinets[i].cart_cnt = 1;
+      this.products[i].cart_cnt = 1;
     }
-    this.totalPrice = this.shoppingCartService.getTotalPrice()
+    this.totalPrice = this.shoppingCartService.getTotalPrice();
   }
 
   get serverUrl(): string {
     return ShoppingCartService.server_url;
   }
 
-  removeCab(index) {
-    this.shoppingCartService.removeCab(index);
-    this.totalPrice = this.shoppingCartService.getTotalPrice()
+  removePro(index) {
+    this.shoppingCartService.removePro(index);
+    this.totalPrice = this.shoppingCartService.getTotalPrice();
   }
 }

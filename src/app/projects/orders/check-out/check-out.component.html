@@ -1,5 +1,5 @@
 <div class="col-md-8">
-  <form [formGroup]="form" (submit)="makeOrder()">
+  <form [formGroup]="form" (submit)="generateOrder()">
     <div class="form-group">
       <div class="form-group">
         <div class="form-group">
@@ -112,12 +112,12 @@
     Your products
   </h4>
   <ul>
-    <li *ngFor="let cabinet of cabinets" class="list-group-item">
+    <li *ngFor="let product of products" class="list-group-item">
       <div style="width: 45%; display: inline-block">
-        <h6>{{cabinet.cab_name}}</h6>
-        <small class="text-muted">Quantity: {{cabinet.cart_cnt}}</small>
+        <h6>{{product.pro_name}}</h6>
+        <small class="text-muted">Quantity: {{product.cart_cnt}}</small>
       </div>
-      <span class="text-muted" style="display: inline-block; float: right">{{cabinet.price}}$</span>
+      <span class="text-muted" style="display: inline-block; float: right">{{product.price}}$</span>
     </li>
     <li class="list-group-item">
       <span>Total (USD)</span>

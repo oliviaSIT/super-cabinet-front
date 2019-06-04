@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { AdminLoginComponent } from './projects/auth/admin-login/admin-login.component';
 import { AdminLogoutComponent } from './projects/auth/admin-logout/admin-logout.component';
 import { AboutComponent } from './projects/about/about.component';
-import { ContactUsComponent } from './projects/contact-us/contact-us.component';
 import { PrivacyPolicyComponent } from './projects/privacy-policy/privacy-policy.component';
 import { ReturnPolicyComponent } from './projects/return-policy/return-policy.component';
 import { ShippingPolicyComponent } from './projects/shipping-policy/shipping-policy.component';
@@ -26,10 +25,10 @@ import { RegisterComponent } from './projects/auth/register/register.component';
 import { LoginErrorComponent } from './projects/auth/login-error/login-error.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AdminIndexComponent } from './projects/auth/admin-index/admin-index.component';
-import { AddCabinetComponent } from './projects/admin/add-cabinet/add-cabinet.component';
+import { AddProductComponent } from './projects/admin/add-product/add-product.component';
 import { ProductListDetail } from './projects/product/product-list/product-list-detail/product-list-detail';
 import { ShoppingCartService } from './projects/service/shopping-cart.service';
-import { CabShowService } from './projects/service/cab-show.service';
+import { ProShowService } from './projects/service/pro-show.service';
 import { OrderLookupDetailComponent } from './projects/admin/order-lookup/order-lookup-detail/order-lookup-detail.component';
 import { UserRegisterComponent } from './projects/auth/user-register/user-register.component';
 import { OrderDetailService } from './projects/service/order-detail.service';
@@ -50,7 +49,6 @@ import { LogoutComponent } from './projects/auth/logout/logout.component';
     AdminLoginComponent,
     AdminLogoutComponent,
     AboutComponent,
-    ContactUsComponent,
     PrivacyPolicyComponent,
     ReturnPolicyComponent,
     ShippingPolicyComponent,
@@ -65,7 +63,7 @@ import { LogoutComponent } from './projects/auth/logout/logout.component';
     RegisterComponent,
     LoginErrorComponent,
     AdminIndexComponent,
-    AddCabinetComponent,
+    AddProductComponent,
     ProductListDetail,
     OrderLookupDetailComponent,
     UserRegisterComponent,
@@ -92,7 +90,7 @@ import { LogoutComponent } from './projects/auth/logout/logout.component';
   providers: [
     AuthService,
     AppGuard,
-    CabShowService,
+    ProShowService,
     ShoppingCartService,
     OrderDetailService
   ],
