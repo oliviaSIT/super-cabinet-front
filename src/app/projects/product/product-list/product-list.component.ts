@@ -3,14 +3,14 @@ import { CabShowService } from '../../service/cab-show.service';
 import { HttpClient } from '@angular/common/http';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { Http } from '@angular/http';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-cabinet-list',
-  templateUrl: './cabinet-list.component.html',
-  styleUrls: ['./cabinet-list.component.css']
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class CabinetListComponent implements OnInit {
+export class ProductListComponent implements OnInit {
 
   sortOptions: any;
 
@@ -20,7 +20,7 @@ export class CabinetListComponent implements OnInit {
 
   public cabinetList: Array<{ cab_desc: string, cab_name: string, price: string, id: number, pic: string }>;
 
-  pic: any
+  pic: any;
 
   constructor(private httpclient: HttpClient,
               private http: Http,
@@ -45,7 +45,7 @@ export class CabinetListComponent implements OnInit {
   getCabinets(): any {
     this.cabService.getCabinets().subscribe((res) => {
       this.cabinetList = <Array<{ id: number, cab_desc: string, cab_name: string, price: string, pic: string }>>res.json();
-    })
+    });
   }
 
   getPics(): any {

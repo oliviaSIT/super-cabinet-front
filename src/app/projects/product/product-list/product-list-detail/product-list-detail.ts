@@ -5,10 +5,10 @@ import { ShoppingCartService } from '../../../service/shopping-cart.service';
 
 @Component({
   selector: 'app-cabinet-list-detail',
-  templateUrl: './cabinet-list-detail.component.html',
-  styleUrls: ['./cabinet-list-detail.component.css']
+  templateUrl: './product-list-detail.component.html',
+  styleUrls: ['./product-list-detail.component.css']
 })
-export class CabinetListDetailComponent implements OnInit {
+export class ProductListDetail implements OnInit {
 
   private id: any;
 

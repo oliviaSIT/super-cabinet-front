@@ -38,6 +38,11 @@ export class AuthService {
       .pipe(map(res => res.json()));
   }
 
+  userRegister(user): Observable<any> {
+    return this.http.post(this.API_URL + '/users', user)
+      .pipe(map(res => res.json()));
+  }
+
   logout(): Observable<any> {
     return this.http.post(this.API_URL + '/logout', {}, {withCredentials: true})
       .pipe(map(res => res.json()))

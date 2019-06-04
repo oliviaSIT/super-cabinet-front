@@ -21,7 +21,7 @@
   <ng-template let-cabinet pTemplate="listItem">
     <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
       <div class="ui-g-12 ui-md-3" style="text-align:center">
-        <a [routerLink]="['/cabinet/detail/', cabinet.id]">
+        <a [routerLink]="['/product/detail/', cabinet.id]">
           <img src='{{ serverUrl+cabinet.pic }}' width="200" height="150">
         </a>
       </div>
@@ -45,7 +45,7 @@
   <ng-template let-cabinet pTemplate="gridItem">
     <div style="padding:.5em" class="ui-g-12 ui-md-3">
       <p-panel [header]="cabinet.cab_name" [style]="{'text-align':'center'}">
-        <a [routerLink]="['/cabinet/detail/', cabinet.id]">
+        <a [routerLink]="['/product/detail/', cabinet.id]">
           <img src='{{ serverUrl+cabinet.pic }}' width="200" height="150">
         </a>
         <div class="car-detail">{{cabinet.price}}</div>
