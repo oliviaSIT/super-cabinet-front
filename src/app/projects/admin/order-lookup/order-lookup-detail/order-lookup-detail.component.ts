@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import {OrderDetailService} from "../../../service/order-detail.service";
+import {OrderDetailService} from '../../../service/order-detail.service';
 
 @Component({
   selector: 'app-order-lookup-detail',
@@ -9,7 +8,7 @@ import {OrderDetailService} from "../../../service/order-detail.service";
 })
 export class OrderLookupDetailComponent implements OnInit {
 
-  buycabs: any;
+  buypros: any;
 
   constructor(private orderDetailService: OrderDetailService) {
   }
@@ -19,10 +18,10 @@ export class OrderLookupDetailComponent implements OnInit {
   }
 
   showItems() {
-    this.buycabs = this.orderDetailService.showItems();
-    console.log(this.buycabs);
-    this.buycabs.forEach(obj => {
-      obj.cab_id
-    })
+    this.buypros = this.orderDetailService.showItems();
+    console.log(this.buypros);
+    this.buypros.forEach(obj => {
+      obj.pro_id;
+    });
   }
 }

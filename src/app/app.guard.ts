@@ -19,7 +19,7 @@ export class AppGuard implements CanActivate {
     return this.authService.loggedIn
       .pipe(map((isLoggedIn) => {
         if (!isLoggedIn) {
-          this.router.navigate(['/about']);
+          this.router.navigate(['/home']);
         }
         return isLoggedIn;
       }));

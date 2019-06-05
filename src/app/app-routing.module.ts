@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppGuard } from './app.guard';
 import { OrderLookupComponent } from './projects/admin/order-lookup/order-lookup.component';
-import { AboutComponent } from './projects/about/about.component';
+import { HomeComponent } from './projects/home/home.component';
 import { CheckOutComponent } from './projects/orders/check-out/check-out.component';
 import { OrderStatusComponent } from './projects/orders/order-status/order-status.component';
 import { PrivacyPolicyComponent } from './projects/privacy-policy/privacy-policy.component';
@@ -53,8 +53,8 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'about',
-    component: AboutComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'order/placed',
@@ -98,7 +98,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'product',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];

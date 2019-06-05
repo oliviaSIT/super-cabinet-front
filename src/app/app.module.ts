@@ -9,7 +9,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AdminLoginComponent } from './projects/auth/admin-login/admin-login.component';
 import { AdminLogoutComponent } from './projects/auth/admin-logout/admin-logout.component';
-import { AboutComponent } from './projects/about/about.component';
+import { HomeComponent } from './projects/home/home.component';
 import { PrivacyPolicyComponent } from './projects/privacy-policy/privacy-policy.component';
 import { ReturnPolicyComponent } from './projects/return-policy/return-policy.component';
 import { ShippingPolicyComponent } from './projects/shipping-policy/shipping-policy.component';
@@ -48,7 +48,7 @@ import { LogoutComponent } from './projects/auth/logout/logout.component';
     AppComponent,
     AdminLoginComponent,
     AdminLogoutComponent,
-    AboutComponent,
+    HomeComponent,
     PrivacyPolicyComponent,
     ReturnPolicyComponent,
     ShippingPolicyComponent,
