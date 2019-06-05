@@ -20,19 +20,32 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
   }
 
-  triggerCart(num, i) {
-    if(num <= 0) {
-      this.products[i].cart_cnt = 1;
-    }
-    this.totalPrice = this.shoppingCartService.getTotalPrice();
-  }
-
   get serverUrl(): string {
     return ShoppingCartService.server_url;
   }
 
-  removePro(index) {
-    this.shoppingCartService.removePro(index);
+  removePro(name) {
+    this.shoppingCartService.removeFromCart(name);
+    this.products = this.shoppingCartService.getAllPros();
+    this.totalPrice = this.shoppingCartService.getTotalPrice();
+  }
+
+  quantityValidator(product, num) {
+    if (num <= 0) {
+      this.shoppingCartService.updateCart(product, 1);
+    } else {
+      this.shoppingCartService.updateCart(product, num);
+    }
+
+    this.products = this.shoppingCartService.getAllPros();
+    this.totalPrice = this.shoppingCartService.getTotalPrice();
+  }
+
+  updateCart(num, i) {
+    if(num <= 0) {
+      this.products[i].pro_cnt = 1;
+    }
+    this.products = this.shoppingCartService.getAllPros();
     this.totalPrice = this.shoppingCartService.getTotalPrice();
   }
 }

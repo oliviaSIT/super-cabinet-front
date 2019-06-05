@@ -12,11 +12,11 @@
           </td><td>{{ pro.pro_name }}</td>
           <td>${{ pro.price }}</td>
           <td>
-            <input type="number" min="1" style="width: 70px;" class="my-product-quantity" [(ngModel)]="pro.cart_cnt" (change)="triggerCart(pro.cart_cnt, i)">
+            <input type="number" min="1" style="width: 70px;" class="my-product-quantity" [(ngModel)]="pro.pro_cnt" (change)="quantityValidator(pro,pro.pro_cnt)">
           </td>
           <td class="my-product-total">${{ pro.price }}</td>
           <td class="text-center" style="width: 30px;">
-            <a class="btn btn-xs btn-danger my-product-remove" (click)="removePro(i)">X</a>
+            <a class="btn btn-xs btn-danger my-product-remove" (click)="removePro(pro.pro_name)">X</a>
           </td>
         </tr>
 

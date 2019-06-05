@@ -18,10 +18,6 @@ export class ProShowService {
    return this.http.get(this.API_URL + '/products');
   }
 
-  getPics(): any {
-    return this.httpclient.get(this.API_URL + '/getallfiles');
-  }
-
   getPro(id: any): any {
     return this.http.get(this.API_URL + '/products/' + id);
   }

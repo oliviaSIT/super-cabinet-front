@@ -29,7 +29,6 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.getPics();
   }
 
   getProducts(): any {
@@ -38,11 +37,6 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  getPics(): any {
-    this.proService.getPics().subscribe((res) => {
-      this.pic = res;
-    });
-  }
 
   addToCart(product) {
     product.cart_cnt = 1;
@@ -51,6 +45,6 @@ export class ProductListComponent implements OnInit {
   }
 
   getPro(id: any): any {
-    this.proService.getPro(id).subscribe
+    this.proService.getPro(id).subscribe;
   }
 }

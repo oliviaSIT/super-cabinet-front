@@ -25,18 +25,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getProducts();
-    this.getPics();
   }
 
   getProducts(): any {
     this.proService.getProducts().subscribe((res) => {
       this.productList = <Array<{ id: number, pro_name: string, price: string, pic: string }>>res.json();
-    });
-  }
-
-  getPics(): any {
-    this.proService.getPics().subscribe((res) => {
-      this.pic = res;
     });
   }
 
