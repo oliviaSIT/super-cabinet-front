@@ -1,51 +1,23 @@
 <h3>Products List</h3>
-<p-dataView #dv [value]="productList" [paginator]="true" [rows]="4" paginatorPosition="both" filterBy="brand"
-            [sortField]="sortField" [sortOrder]="sortOrder" [styleClass]="">
-  <p-header>
-    <div class="ui-helper-clearfix">
-      <div class="ui-g">
-        <div class="ui-g-6 ui-md-4 filter-container">
-          <div style="position:relative">
-            <input type="search" pInputText placeholder="Search by name" (keyup)="dv.filter($event.target.value)">
-          </div>
+<div class="mt-3">
+  <ul class="list-group" *ngFor="let product of productList">
+    <li class="list-group-item list-group-item-action border-0 pt-5 pb-5" (click)="getPro(product.id)">
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <a [routerLink]="['/product/detail/', product.id]">
+            <img src='{{ serverUrl+product.pic }}' width="200" height="150">
+          </a>
         </div>
-        <div class="ui-g-6 ui-md-4" style="text-align:right">
-          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        <div class="col-md-9">
+          <h5 class="mt-0 mb-1"><a>{{product.pro_name}}</a></h5>
+          <p>Price: {{product.price | currency}}</p>
+        </div>
+        <div class="col-md-12">
+          <button class="btn btn-danger" (click)="addToCart(product)">Add to Cart</button>
         </div>
       </div>
-    </div>
-  </p-header>
-  <ng-template let-product pTemplate="listItem">
-    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
-      <div class="ui-g-12 ui-md-3" style="text-align:center">
-        <a [routerLink]="['/product/detail/', product.id]">
-          <img src='{{ serverUrl+product.pic }}' width="200" height="150">
-        </a>
-      </div>
-      <div class="ui-g-12 ui-md-8">
-        <div class="ui-g">
-          <div class="ui-g-2 ui-sm-6">Product Name: </div>
-          <div class="ui-g-10 ui-sm-6"><b>{{product.pro_name}}</b></div>
+    </li>
+    <div class="col-12"><hr></div>
+  </ul>
+</div>
 
-          <div class="ui-g-2 ui-sm-6">Price: </div>
-          <div class="ui-g-10 ui-sm-6"><b>{{product.price}}</b></div>
-        </div>
-      </div>
-      <div class="ui-g-12 ui-md-1 search-icon">
-        <button class="btn btn-danger" (click)="addToCart(this.product)">Add to Cart</button>
-      </div>
-    </div>
-  </ng-template>
-  <ng-template let-product pTemplate="gridItem">
-    <div style="padding:.5em" class="ui-g-12 ui-md-3">
-      <p-panel [header]="product.pro_name" [style]="{'text-align':'center'}">
-        <a [routerLink]="['/product/detail/', product.id]">
-          <img src='{{ serverUrl+product.pic }}' width="200" height="150">
-        </a>
-        <div class="car-detail">{{product.price}}</div>
-        <hr class="ui-widget-content" style="border-top:0">
-        <button class="btn btn-danger" (click)="addToCart(this.product)">Add to Cart</button>
-      </p-panel>
-    </div>
-  </ng-template>
-</p-dataView>

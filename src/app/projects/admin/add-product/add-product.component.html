@@ -2,18 +2,13 @@
   <h3>Product Add - Form</h3>
   <form [formGroup]="form" (submit)="addProduct(); form.reset()">
     <div class="form-group">
-      <label for="cab_name">Cabinet Name: </label>
-      <input type="text" class="form-control" id="cab_name" name="cab_name" formControlName="cab_name">
+      <label for="pro_name">Product Name: </label>
+      <input type="text" class="form-control" id="pro_name" name="pro_name" formControlName="pro_name">
     </div>
 
     <div class="form-group">
-      <label for="cabinet_image">Cabinet Image: </label>
-      <input class="form-control" type="file" (change)="onFileChange($event)" id="cabinet_image" name="cabinet_image">
-    </div>
-
-    <div class="form-group">
-      <label for="cab_desc">Description: </label>
-      <input type="text" name="cab_desc" id="cab_desc" class="form-control" formControlName="cab_desc">
+      <label for="product_image">Product Image: </label>
+      <input class="form-control" type="file" (change)="onFileChange($event)" id="product_image" name="product_image">
     </div>
 
     <div class="form-group">
@@ -22,6 +17,6 @@
     </div>
 
     <button class="btn btn-primary" type="submit">Submit</button>
-    <h4 *ngIf="flag">You have add a cabinet successfully</h4>
+    <h4 *ngIf="flag">You have add a product successfully</h4>
   </form>
 </div>

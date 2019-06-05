@@ -11,10 +11,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  sortOrder: number;
-
-  sortField: string;
-
   public productList: Array<{ pro_name: string, price: string, id: number, pic: string }>;
 
   pic: any;
@@ -32,6 +28,8 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getProducts();
+    this.getPics();
   }
 
   getProducts(): any {
@@ -50,5 +48,9 @@ export class ProductListComponent implements OnInit {
     product.cart_cnt = 1;
     this.shoppingCartService.addToCart(product);
     this.route.navigateByUrl('/cart');
+  }
+
+  getPro(id: any): any {
+    this.proService.getPro(id).subscribe
   }
 }
